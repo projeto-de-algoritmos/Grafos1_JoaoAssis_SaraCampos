@@ -20,6 +20,13 @@ class Graph:
                 print(adjacente, end=  '* ' if nosVisitados[adjacente] else ' ')
             print("\n")
     
+    def printGrafo(self):
+        for no in self.graph.keys():
+            print(no,end=': ')
+            for adjacente in self.graph[no]:
+                print(adjacente, end=' ')
+            print("\n")
+    
     def BFS(self, inicio,fim):
         # Marcando todos os vertices como não visitados
         visitado = [False] * (max(self.graph) + 1)
@@ -83,12 +90,16 @@ while(True):
     if(option == 4):
         break
     if(option == 1):
-        g.printGrafoVisitado()
+        
         no1 = int(input("Digite o nó pai "))
         no2 = int(input("Digite o nó filho "))
+        
         g.addVertice(no1,no2)
+        
         if(naoDirecionado):
             g.addVertice(no2,no1)
+        print("Grafo Atual")
+        g.printGrafo()
     if(option == 2):
         inicio = int(input("Digite o nó de inicio da busca "))
         fim = int(input("Digite o nó de fim da busca "))
