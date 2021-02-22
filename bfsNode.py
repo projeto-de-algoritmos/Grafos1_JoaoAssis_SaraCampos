@@ -15,7 +15,7 @@ class Graph:
     def printGrafoVisitado(self, nosVisitados,noAtual):
         
         for no in self.graph.keys():
-            print(no,end= '**  'if adjacente == noAtual else '*: 'if nosVisitados[no] else ': ')
+            print(no,end= '**  'if no == noAtual else '*: 'if nosVisitados[no] else ': ')
             for adjacente in self.graph[no]:
                 print(adjacente, end=  '* ' if nosVisitados[adjacente] else ' ')
             print("\n")
@@ -75,7 +75,7 @@ g = Graph()
 
 
 ## Menu de inicio do app
-naoDirecionado = input("Deseja operar um grafo: 1)Direcionado2)Não direcionado") == '2'
+naoDirecionado = input("Deseja operar um grafo: 1)Direcionado 2)Não direcionado") == '2'
 while(True):
     
     print("Deseja: \n1)Adicionar mais um nó ao grafo\n2)Procurar um nó atraveś do BFS\n4)Fechar o programa")
@@ -83,6 +83,7 @@ while(True):
     if(option == 4):
         break
     if(option == 1):
+        g.printGrafoVisitado()
         no1 = int(input("Digite o nó pai "))
         no2 = int(input("Digite o nó filho "))
         g.addVertice(no1,no2)
