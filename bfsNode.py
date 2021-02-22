@@ -19,12 +19,15 @@ class Graph:
             for adjacente in self.graph[no]:
                 print(adjacente, end=  '* ' if nosVisitados[adjacente] else ' ')
             print("\n")
+    
     def BFS(self, inicio,fim):
         # Marcando todos os vertices como não visitados
         visitado = [False] * (max(self.graph) + 1)
         # Criamos uma variavel auxiliar fila para atravessar o grafo
         filaNos = []
-        caminho = {}
+
+        caminho = {} ## Conjunto de tuplas, para listar o menor caminho entre os nós
+
         # Marcamos o no de origem como visitado e o colocamos na fila
         filaNos.append(inicio)
 
@@ -49,7 +52,7 @@ class Graph:
                     
                     if visitado[i] == False:
                         print("Marcamos o no " + str(i) + " como visitado e o adicionamos a fila para visitar seus adjactentes")
-                        caminho[i] = inicio
+                        caminho[i] = inicio ## Adicionamos ao caminho que este nó foi visitado através do no de inicio
                         if(i == fim):
                             return caminho
                         filaNos.append(i)
@@ -70,6 +73,8 @@ class Graph:
 
 g = Graph()
 
+
+## Menu de inicio do app
 naoDirecionado = input("Deseja operar um grafo: 1)Direcionado2)Não direcionado") == '2'
 while(True):
     
@@ -78,21 +83,22 @@ while(True):
     if(option == 4):
         break
     if(option == 1):
-        no1 = int(input("Digite o nó pai"))
-        no2 = int(input("Digite o nó filho"))
+        no1 = int(input("Digite o nó pai "))
+        no2 = int(input("Digite o nó filho "))
         g.addVertice(no1,no2)
         if(naoDirecionado):
             g.addVertice(no2,no1)
     if(option == 2):
-        inicio = int(input("Digite o nó de inicio da busca"))
-        fim = int(input("Digite o nó de fim da busca"))
+        inicio = int(input("Digite o nó de inicio da busca "))
+        fim = int(input("Digite o nó de fim da busca "))
         caminhoBusca = g.BFS(inicio,fim)
         if(len(caminhoBusca)):
             print("Caminho encontrado!")
             noCaminho = fim
             while(noCaminho!=inicio):
-                print(str(noCaminho) + ' <-',end='')
+                print(str(noCaminho) + ' <-',end='') ## Printamos o caminho até chegar ao no final
                 noCaminho = caminhoBusca[noCaminho]
+            print(noCaminho)
         else:
             print("Caminho não encontrado")
         
