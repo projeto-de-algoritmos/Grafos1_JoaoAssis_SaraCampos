@@ -14,13 +14,15 @@ Programa em python para demonstrar passo a passo o BFS (busca por largura)
 O projeto realiza uma travessia por largura no grafo, direcionado ou não, escolhido pelo usuário, explicando cada passo dado no algoritmo.
 
 ## Screenshots
-![Terminal exibindo o programa](screenshots/1.png)
-![Terminal exibindo o programa](screenshots/2.png)
-![Terminal exibindo o programa](screenshots/3.png)
+![Terminal exibindo o programa](media/1.png)
+![Terminal exibindo o programa](media/2.png)
+![Terminal exibindo o programa](media/3.png)
 
 ## Link para o vídeo no youtube
 
 [Video](https://youtu.be/eDgTeVZqjaw)
+
+> Obs.: vídeo também disponível na pasta "media" do repositório 
 
 ## Instalação 
 **Linguagem**: Python<br>
